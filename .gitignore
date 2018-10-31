@@ -1,0 +1,5 @@
+build/
+*.swp
+*.cmake
+/**/autogen-*-macros.h
+.DS_Store
