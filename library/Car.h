@@ -4,6 +4,7 @@
 #include "FuelTankDisplay.h"
 #include "FuelTank.h"
 #include "Engine.h"
+#include "autogen-CC-macros.h"
 
 class Car
 {
@@ -20,9 +21,6 @@ public:
     Car() : Car(20){};
 
     Car(int fuel) : _fuel_tank(), _engine(&_fuel_tank), fuel_tank_display(&_fuel_tank) {
-        //_fuel_tank = new FuelTank();
-        //fuel_tank_display = new FuelTankDisplay(&_fuel_tank);
-        //engine = Engine(_fuel_tank);
         Refuel(fuel);
     }
 

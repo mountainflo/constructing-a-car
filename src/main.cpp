@@ -13,12 +13,16 @@
 // limitations under the License.
 
 #include <iostream>
-#include "../library/autogen-CC-macros.h"
+#include "../library/Car.h"
 
 int main(void)
 {
 
     //DEBUG_MSG_CC("Debug was called from here - " << 23 << '\n');
+
+    Car car;
+    car.EngineStart();
+    car.RunningIdle();
 
     return 0;
 }

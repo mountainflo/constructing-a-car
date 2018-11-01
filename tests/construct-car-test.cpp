@@ -1,5 +1,5 @@
 #include "catch.h"
-#include "../src/Car.h"
+#include "../library/Car.h"
 
 TEST_CASE("TestMotorOfNewCar", "[TestMotorOfNewCar]")
 {

@@ -4,7 +4,7 @@ void Engine::Consume(double liters) {
     _fuel_tank->Consume(liters);
 }
 
-void Engine::EngineStart() {
+void Engine::Start() {
     isRunning = true;
 }
 

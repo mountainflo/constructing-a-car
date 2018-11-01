@@ -2,6 +2,7 @@ set(PROJECT_NAME CppTemplate)
 # this is the suffix which will be used for unique identification for our macros like DEBUG_MSG_${UNIQUE_DEBUG_ID}
 set(UNIQUE_DEBUG_ID CC) 
 set(EXEC_NAME construct-car-exec)
+set(CPP_LIB_NAME construct-car-lib)
 set(TEST_NAME construct-car-test)
 
 project (${PROJECT_NAME})
@@ -181,6 +182,7 @@ install(EXPORT ${CPP_LIB_NAME} DESTINATION "${main_lib_dest}")
 ##########################
 
 # add the code
+add_subdirectory( library )
 add_subdirectory( src )
 
 # add tests
