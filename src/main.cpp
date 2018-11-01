@@ -14,7 +14,6 @@
 
 #include <iostream>
 #include "../library/autogen-CC-macros.h"
-#include "Car.cpp"
 
 int main(void)
 {

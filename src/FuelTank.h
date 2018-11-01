@@ -1,22 +1,25 @@
-#ifndef I_FUEL_TANK_H
-#define I_FUEL_TANK_H
+#ifndef FUEL_TANK_H
+#define FUEL_TANK_H
 
-class IFuelTank
+class FuelTank
 {
-public:
-
-    virtual void Consume(double liters) = 0;
-
-    virtual void Refuel(double liters) = 0;
-
-protected:
+private:
+    const double MAXIMUM_FILL_LEVEL = 60.0;
+    const double RESERVE_FILL_LEVEL = 5.0;
 
     double fillLevel = 0.0;
-
     bool isOnReserve = false;
-
     bool isComplete = false;
 
+public:
+
+    void Consume(double liters);
+    void Refuel(double liters);
+
+    bool getIsOnReserve();
+    bool getIsComplete();
+    double getFillLevel();
+    
 };
 
-#endif // I_FUEL_TANK_H
+#endif // FUEL_TANK_H

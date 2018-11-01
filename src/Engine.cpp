@@ -1,7 +1,5 @@
 #include "Engine.h"
 
-Engine(FuelTank* fuel_tank) : _fuel_tank(fuel_tank){}
-
 void Engine::Consume(double liters) {
     _fuel_tank->Consume(liters);
 }

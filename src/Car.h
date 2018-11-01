@@ -1,17 +1,40 @@
-#ifndef I_CAR_H
-#define I_CAR_H
+#ifndef CAR_H
+#define CAR_H
 
-class ICar
+#include "FuelTankDisplay.h"
+#include "FuelTank.h"
+#include "Engine.h"
+
+class Car
 {
+
+private:
+    FuelTank _fuel_tank;
+    Engine _engine;
+    const double FUEL_CONSUMPTION = 0.0003;
+
 public:
 
-    virtual void EngineStart() = 0;
+    FuelTankDisplay fuel_tank_display;
 
-    virtual void EngineStop() = 0;
+    Car() : Car(20){};
 
-    virtual void Refuel(double liters) = 0;
+    Car(int fuel) : _fuel_tank(), _engine(&_fuel_tank), fuel_tank_display(&_fuel_tank) {
+        //_fuel_tank = new FuelTank();
+        //fuel_tank_display = new FuelTankDisplay(&_fuel_tank);
+        //engine = Engine(_fuel_tank);
+        Refuel(fuel);
+    }
 
-    virtual void RunningIdle() = 0;
+    void EngineStart();
+
+    void EngineStop();
+
+    void Refuel(double liters);
+
+    void RunningIdle();
+
+    bool getEngineIsRunning();
 };
 
-#endif // I_CAR_H
+#endif // CAR_H

@@ -1,15 +1,22 @@
-#ifndef I_FUEL_TANK_DISPLAY_H
-#define I_FUEL_TANK_DISPLAY_H
+#ifndef FUEL_TANK_DISPLAY_H
+#define FUEL_TANK_DISPLAY_H
 
-class IFuelTankDisplay
+#include "FuelTank.h"
+
+class FuelTankDisplay
 {
-protected:
+private:
+    FuelTank* _fuel_tank;
 
-    double fillLevel = 0.0;
+public:
+    FuelTankDisplay(FuelTank* fuel_tank) : _fuel_tank (fuel_tank){}
 
-    bool isOnReserve = false;
+    double getFillLevel();
 
-    bool isComplete = false;
+    bool getIsOnReserve();
+
+    bool getIsComplete();
+
 };
 
-#endif // I_FUEL_TANK_DISPLAY_H
+#endif // FUEL_TANK_DISPLAY_H
