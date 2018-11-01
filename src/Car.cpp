@@ -1,10 +1,10 @@
 #ifndef CAR_CPP
 #define CAR_CPP
 
-#include "ICar.h"
+#include "Car.h"
 #include "FuelTankDisplay.cpp"
 #include "FuelTank.cpp"
-#include "Engine.cpp"
+#include "Engine.h"
 #include <iostream>
 
 class Car : public ICar
@@ -12,7 +12,7 @@ class Car : public ICar
 
 private:
     FuelTank* _fuel_tank;
-    Engine* _engine;
+    Engine _engine = 0;
     const double FUEL_CONSUMPTION = 0.0003;
 
 public:
@@ -21,26 +21,26 @@ public:
 
     Car() : Car(20){};
 
-    Car(int fuel) : _fuel_tank(){
+    Car(int fuel) : _fuel_tank() {
         _fuel_tank = new FuelTank();
         fuel_tank_display = new FuelTankDisplay(_fuel_tank);
-        _engine = new Engine(_fuel_tank);
+        _engine = Engine(_fuel_tank);
         Refuel(fuel);
     }
 
 
     bool getEngineIsRunning(){
-        return _engine->getIsRunning();
+        return _engine.getIsRunning();
     }
 
     void EngineStart() override {
         if(_fuel_tank->getFillLevel() > 0.0){
-            _engine->Start();
+            _engine.Start();
         } 
     }
 
     void EngineStop() override {
-        _engine->Stop();
+        _engine.Stop();
     }
 
     void Refuel(double liters) override {

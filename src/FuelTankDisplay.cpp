@@ -1,7 +1,7 @@
 #ifndef FUEL_TANK_DISPLAY_CPP
 #define FUEL_TANK_DISPLAY_CPP
 
-#include "IFuelTankDisplay.h"
+#include "FuelTankDisplay.h"
 #include "FuelTank.cpp"
 #include <math.h>
 

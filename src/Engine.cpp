@@ -1,34 +1,19 @@
-#ifndef ENGINE_CPP
-#define ENGINE_CPP
+#include "Engine.h"
 
-#include "IEngine.h"
+Engine(FuelTank* fuel_tank) : _fuel_tank(fuel_tank){}
 
-class Engine : public IEngine
-{
+void Engine::Consume(double liters) {
+    _fuel_tank->Consume(liters);
+}
 
-private:
-    FuelTank* _fuel_tank;
+void Engine::EngineStart() {
+    isRunning = true;
+}
 
-public:
+void Engine::Stop() {
+    isRunning = false;
+}
 
-    Engine(FuelTank* fuel_tank) : _fuel_tank(fuel_tank){}
-
-    void Consume(double liters) override {
-        _fuel_tank->Consume(liters);
-    }
-
-    void Start() override {
-        IEngine::isRunning = true;
-    }
-
-    void Stop() override {
-        IEngine::isRunning = false;
-    }
-
-    bool getIsRunning(){
-        return IEngine::isRunning;
-    }
-
-};
-
-#endif // ENGINE_CPP
+bool Engine::getIsRunning(){
+    return isRunning;
+}
