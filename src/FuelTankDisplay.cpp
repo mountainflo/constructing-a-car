@@ -8,26 +8,21 @@
 class FuelTankDisplay : public IFuelTankDisplay
 {
 private:
-    FuelTank* fuelTank;
+    FuelTank* _fuel_tank;
 
 public:
-    FuelTankDisplay(FuelTank* fuelTank){
-        this->fuelTank = fuelTank;
-    }
+    FuelTankDisplay(FuelTank* fuel_tank) : _fuel_tank (fuel_tank){}
 
     double getFillLevel(){
-        IFuelTankDisplay::fillLevel = ((int) round(fuelTank->getFillLevel() * 100.0)) / 100.0;
-        return IFuelTankDisplay::fillLevel;
+        return ((int) round(_fuel_tank->getFillLevel() * 100.0)) / 100.0;
     } 
 
     bool getIsOnReserve(){
-        IFuelTankDisplay::isOnReserve = fuelTank->getIsOnReserve();
-        return IFuelTankDisplay::isOnReserve;
+        return _fuel_tank->getIsOnReserve();
     }
 
     bool getIsComplete(){
-        IFuelTankDisplay::isComplete = fuelTank->getIsComplete();       
-        return IFuelTankDisplay::isComplete;
+        return _fuel_tank->getIsComplete();
     }
 };
 

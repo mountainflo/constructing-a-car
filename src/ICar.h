@@ -12,10 +12,6 @@ public:
     virtual void Refuel(double liters) = 0;
 
     virtual void RunningIdle() = 0;
-
-protected:
-
-    bool engineIsRunning = false;
 };
 
 #endif // I_CAR_H

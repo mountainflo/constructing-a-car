@@ -7,16 +7,14 @@ class Engine : public IEngine
 {
 
 private:
-    FuelTank* fuelTank;
+    FuelTank* _fuel_tank;
 
 public:
 
-    Engine(FuelTank* fuelTank){
-        this->fuelTank = fuelTank;
-    }
+    Engine(FuelTank* fuel_tank) : _fuel_tank(fuel_tank){}
 
     void Consume(double liters) override {
-        fuelTank->Consume(liters);
+        _fuel_tank->Consume(liters);
     }
 
     void Start() override {

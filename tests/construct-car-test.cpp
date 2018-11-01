@@ -23,9 +23,9 @@ TEST_CASE("TestFuelTankDisplayOfNewCar", "[TestFuelTankDisplayOfNewCar]")
     
     Car car;
         
-    REQUIRE(car.fuelTankDisplay->getIsComplete() == false);
+    REQUIRE(car.fuel_tank_display->getIsComplete() == false);
         
-    REQUIRE(car.fuelTankDisplay->getIsOnReserve() == false);
+    REQUIRE(car.fuel_tank_display->getIsOnReserve() == false);
 
 }
 
@@ -40,7 +40,7 @@ TEST_CASE("TestFuelConsumptionOnIdle", "[TestFuelConsumptionOnIdle]")
         car.RunningIdle();
     }
         
-    REQUIRE(car.fuelTankDisplay->getFillLevel() == 0.10);
+    REQUIRE(car.fuel_tank_display->getFillLevel() == 0.10);
 }
 
 TEST_CASE("TestFuelTankDisplayIsComplete", "[TestFuelTankDisplayIsComplete]")
@@ -48,7 +48,7 @@ TEST_CASE("TestFuelTankDisplayIsComplete", "[TestFuelTankDisplayIsComplete]")
     
     Car car(60);
     
-    REQUIRE(car.fuelTankDisplay->getIsComplete() == true);
+    REQUIRE(car.fuel_tank_display->getIsComplete() == true);
 }
 
 TEST_CASE("TestFuelTankDisplayIsOnReserve", "[TestFuelTankDisplayIsOnReserve]")
@@ -56,7 +56,7 @@ TEST_CASE("TestFuelTankDisplayIsOnReserve", "[TestFuelTankDisplayIsOnReserve]")
     
     Car car(4);
     
-    REQUIRE(car.fuelTankDisplay->getIsOnReserve() == true);
+    REQUIRE(car.fuel_tank_display->getIsOnReserve() == true);
 }
 
 TEST_CASE("TestRefuel", "[TestRefuel]")
@@ -66,7 +66,7 @@ TEST_CASE("TestRefuel", "[TestRefuel]")
 
     car.Refuel(40);
     
-    REQUIRE(car.fuelTankDisplay->getFillLevel() == 45);
+    REQUIRE(car.fuel_tank_display->getFillLevel() == 45);
 }
 
 TEST_CASE("TestMotorDoesntStartWithEmptyFuelTank", "[TestMotorDoesntStartWithEmptyFuelTank]")
@@ -84,13 +84,13 @@ TEST_CASE("TestNoConsumptionWhenEngineNotRunning", "[TestNoConsumptionWhenEngine
     
     Car car;
 
-    double startFillLevel = car.fuelTankDisplay->getFillLevel();
+    double startFillLevel = car.fuel_tank_display->getFillLevel();
 
     for(int i = 0; i < 3000; i++) {
         car.RunningIdle();
     }
         
-    REQUIRE(car.fuelTankDisplay->getFillLevel() == startFillLevel);
+    REQUIRE(car.fuel_tank_display->getFillLevel() == startFillLevel);
 }
 
 TEST_CASE("TestNoNegativeFuelLevelAllowed", "[TestNoNegativeFuelLevelAllowed]")
@@ -100,7 +100,7 @@ TEST_CASE("TestNoNegativeFuelLevelAllowed", "[TestNoNegativeFuelLevelAllowed]")
 
     car.Refuel(-10);
     
-    REQUIRE(car.fuelTankDisplay->getFillLevel() == 0);
+    REQUIRE(car.fuel_tank_display->getFillLevel() == 0);
 }
 
 TEST_CASE("TestEngineStopsCauseOfNoFuelExactly", "[TestEngineStopsCauseOfNoFuelExactly]")
@@ -135,5 +135,5 @@ TEST_CASE("TestFuelTankDisplayRoundFillLevel", "[TestFuelTankDisplayRoundFillLev
     
     car.Refuel(0.999999);
         
-    REQUIRE(car.fuelTankDisplay->getFillLevel() == 1);
+    REQUIRE(car.fuel_tank_display->getFillLevel() == 1);
 }

@@ -11,52 +11,51 @@ class Car : public ICar
 {
 
 private:
-    FuelTank* fuelTank;
-    Engine* engine;
-    const double fuelConsumption = 0.0003;
+    FuelTank* _fuel_tank;
+    Engine* _engine;
+    const double FUEL_CONSUMPTION = 0.0003;
 
 public:
 
-    FuelTankDisplay* fuelTankDisplay;
+    FuelTankDisplay* fuel_tank_display;
 
     Car() : Car(20){};
 
-    Car(int fuel){
-        fuelTank = new FuelTank;
-        fuelTankDisplay = new FuelTankDisplay(fuelTank);
-        engine = new Engine(fuelTank);
+    Car(int fuel) : _fuel_tank(){
+        _fuel_tank = new FuelTank();
+        fuel_tank_display = new FuelTankDisplay(_fuel_tank);
+        _engine = new Engine(_fuel_tank);
         Refuel(fuel);
     }
 
 
     bool getEngineIsRunning(){
-        return ICar::engineIsRunning;
+        return _engine->getIsRunning();
     }
 
     void EngineStart() override {
-        if(fuelTank->getFillLevel() > 0.0){
-            ICar::engineIsRunning = true;
-            engine->Start();
+        if(_fuel_tank->getFillLevel() > 0.0){
+            _engine->Start();
         } 
     }
 
     void EngineStop() override {
-        ICar::engineIsRunning = false;
-        engine->Stop();
+        _engine->Stop();
     }
 
     void Refuel(double liters) override {
-        fuelTank->Refuel(liters);
+        _fuel_tank->Refuel(liters);
     }
 
     void RunningIdle() override {
-        if(fuelTank->getFillLevel() < fuelConsumption 
-            || (fuelTank->getFillLevel() - fuelConsumption) < fuelConsumption){
+        if(_fuel_tank->getFillLevel() < FUEL_CONSUMPTION 
+            || (_fuel_tank->getFillLevel() - FUEL_CONSUMPTION) < FUEL_CONSUMPTION){
+
             EngineStop();
             return;
         }
         if(getEngineIsRunning()) {
-            fuelTank->Consume(fuelConsumption);
+            _fuel_tank->Consume(FUEL_CONSUMPTION);
         }
     }
 
