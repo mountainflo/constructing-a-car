@@ -14,12 +14,12 @@
 
 #include <iostream>
 #include "../library/autogen-CC-macros.h"
+#include "Car.cpp"
 
 int main(void)
 {
-    std::cout << "Hello World!\n";
 
-    DEBUG_MSG_CC("Debug was called from here - " << 23 << '\n');
+    //DEBUG_MSG_CC("Debug was called from here - " << 23 << '\n');
 
     return 0;
 }
