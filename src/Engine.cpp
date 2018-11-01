@@ -15,21 +15,21 @@ public:
         this->fuelTank = fuelTank;
     }
 
-    void Consume(double liters){
+    void Consume(double liters) override {
         fuelTank->Consume(liters);
     }
 
-    void Start(){
+    void Start() override {
         IEngine::isRunning = true;
     }
 
-    void Stop(){
+    void Stop() override {
         IEngine::isRunning = false;
     }
 
-    /*bool getIsRunning(){
-        return IEngine::IsRunning;
-    }*/
+    bool getIsRunning(){
+        return IEngine::isRunning;
+    }
 
 };
 

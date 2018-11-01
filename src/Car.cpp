@@ -13,7 +13,7 @@ class Car : public ICar
 private:
     FuelTank* fuelTank;
     Engine* engine;
-    double fuelConsumption = 0.0003;
+    const double fuelConsumption = 0.0003;
 
 public:
 
@@ -33,23 +33,23 @@ public:
         return ICar::engineIsRunning;
     }
 
-    void EngineStart(){
+    void EngineStart() override {
         if(fuelTank->getFillLevel() > 0.0){
             ICar::engineIsRunning = true;
             engine->Start();
         } 
     }
 
-    void EngineStop(){
+    void EngineStop() override {
         ICar::engineIsRunning = false;
         engine->Stop();
     }
 
-    void Refuel(double liters){
+    void Refuel(double liters) override {
         fuelTank->Refuel(liters);
     }
 
-    void RunningIdle(){
+    void RunningIdle() override {
         if(fuelTank->getFillLevel() < fuelConsumption 
             || (fuelTank->getFillLevel() - fuelConsumption) < fuelConsumption){
             EngineStop();

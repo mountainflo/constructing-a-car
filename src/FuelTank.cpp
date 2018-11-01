@@ -3,16 +3,18 @@
 
 #include "IFuelTank.h"
 
+ 
+
 class FuelTank : public IFuelTank
 {
 
 private:
-    double maximumFillLevel = 60.0;
-    double reserveFillLevel = 5.0;
+    const double maximumFillLevel = 60.0;
+    const double reserveFillLevel = 5.0;
 
 public:
 
-    void Consume(double liters){
+    void Consume(double liters) override {
         if(liters > 0){
             IFuelTank::fillLevel -= liters;
         }
@@ -27,7 +29,7 @@ public:
         }
     };
 
-    void Refuel(double liters){
+    void Refuel(double liters) override {
         if(liters > 0){
             IFuelTank::fillLevel += liters;
         }

@@ -16,6 +16,7 @@ protected:
     bool isOnReserve = false;
 
     bool isComplete = false;
+
 };
 
 #endif // I_FUEL_TANK_H
