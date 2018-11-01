@@ -2,7 +2,7 @@ set(PROJECT_NAME CppTemplate)
 # this is the suffix which will be used for unique identification for our macros like DEBUG_MSG_${UNIQUE_DEBUG_ID}
 set(UNIQUE_DEBUG_ID CC) 
 set(EXEC_NAME construct-car-exec)
-set(TEST_NAME cpp-test)
+set(TEST_NAME construct-car-test)
 
 project (${PROJECT_NAME})
 cmake_minimum_required (VERSION 3.5.1)
