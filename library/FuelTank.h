@@ -7,18 +7,18 @@ private:
     const double MAXIMUM_FILL_LEVEL = 60.0;
     const double RESERVE_FILL_LEVEL = 5.0;
 
-    double fillLevel = 0.0;
-    bool isOnReserve = false;
-    bool isComplete = false;
+    double _fill_level = 0.0;
+    bool _is_on_reserve = false;
+    bool _is_complete = false;
 
 public:
 
-    void Consume(double liters);
-    void Refuel(double liters);
+    void consume(double liters);
+    void refuel(double liters);
 
-    bool getIsOnReserve();
-    bool getIsComplete();
-    double getFillLevel();
+    bool get_is_on_reserve();
+    bool get_is_complete();
+    double get_fill_level();
     
 };
 

@@ -1,44 +1,44 @@
 #include "FuelTank.h"
 
-void FuelTank::Consume(double liters) {
+void FuelTank::consume(double liters) {
     if(liters > 0){
-        fillLevel -= liters;
+        _fill_level -= liters;
     }
-    if(fillLevel < RESERVE_FILL_LEVEL) {
-        isOnReserve = true;
+    if(_fill_level < RESERVE_FILL_LEVEL) {
+        _is_complete = true;
     }
-    if(fillLevel < MAXIMUM_FILL_LEVEL) {
-        isComplete = false;
+    if(_fill_level < MAXIMUM_FILL_LEVEL) {
+        _is_complete = false;
     }
-    if(fillLevel < 0.0) {
-        fillLevel = 0.0;
+    if(_fill_level < 0.0) {
+        _fill_level = 0.0;
     }
 }
 
-void FuelTank::Refuel(double liters) {
+void FuelTank::refuel(double liters) {
     if(liters > 0){
-        fillLevel += liters;
+        _fill_level += liters;
     }
-    if(fillLevel >= MAXIMUM_FILL_LEVEL) {
-        fillLevel = MAXIMUM_FILL_LEVEL;
-        isComplete = true;
+    if(_fill_level >= MAXIMUM_FILL_LEVEL) {
+        _fill_level = MAXIMUM_FILL_LEVEL;
+        _is_complete = true;
     }
-    if(fillLevel > RESERVE_FILL_LEVEL) {
-        isOnReserve = false;
+    if(_fill_level > RESERVE_FILL_LEVEL) {
+        _is_on_reserve = false;
     }
-    if(fillLevel < RESERVE_FILL_LEVEL) {
-        isOnReserve = true;
+    if(_fill_level < RESERVE_FILL_LEVEL) {
+        _is_on_reserve = true;
     }
 }
 
-bool FuelTank::getIsOnReserve(){
-    return isOnReserve;
+bool FuelTank::get_is_on_reserve(){
+    return _is_on_reserve;
 }
 
-bool FuelTank::getIsComplete(){
-    return isComplete;
+bool FuelTank::get_is_complete(){
+    return _is_complete;
 }
 
-double FuelTank::getFillLevel(){
-    return fillLevel;
+double FuelTank::get_fill_level(){
+    return _fill_level;
 }     

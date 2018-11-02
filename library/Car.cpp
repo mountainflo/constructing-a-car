@@ -2,33 +2,33 @@
 #include <iostream>
 
 
-bool Car::getEngineIsRunning(){
-    return _engine.getIsRunning();
+bool Car::get_engine_is_running(){
+    return _engine.get_is_running();
 }
 
-void Car::EngineStart() {
-    if(_fuel_tank.getFillLevel() > 0.0){
-        _engine.Start();
+void Car::engine_start() {
+    if(_fuel_tank.get_fill_level() > 0.0){
+        _engine.start();
     } 
 }
 
-void Car::EngineStop() {
-    _engine.Stop();
+void Car::engine_stop() {
+    _engine.stop();
 }
 
-void Car::Refuel(double liters) {
-    _fuel_tank.Refuel(liters);
+void Car::refuel(double liters) {
+    _fuel_tank.refuel(liters);
 }
 
-void Car::RunningIdle() {
-    if(_fuel_tank.getFillLevel() < FUEL_CONSUMPTION 
-        || (_fuel_tank.getFillLevel() - FUEL_CONSUMPTION) < FUEL_CONSUMPTION){
+void Car::running_idle() {
+    if(_fuel_tank.get_fill_level() < FUEL_CONSUMPTION 
+        || (_fuel_tank.get_fill_level() - FUEL_CONSUMPTION) < FUEL_CONSUMPTION){
 
-        EngineStop();
+        engine_stop();
         return;
     }
 
-    if(getEngineIsRunning()) {
-        _fuel_tank.Consume(FUEL_CONSUMPTION);
+    if(get_engine_is_running()) {
+        _fuel_tank.consume(FUEL_CONSUMPTION);
     }
 }

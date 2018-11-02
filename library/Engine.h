@@ -7,19 +7,19 @@ class Engine
 {
 private:
     FuelTank* _fuel_tank;
-    bool isRunning = false;
+    bool _is_running = false;
 
 public:
 
     Engine(FuelTank* fuel_tank) : _fuel_tank{fuel_tank} {};
 
-    void Consume(double liters);
+    void consume(double liters);
 
-    void Start();
+    void start();
 
-    void Stop();
+    void stop();
 
-    bool getIsRunning();
+    bool get_is_running();
     
 };
 

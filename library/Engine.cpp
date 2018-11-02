@@ -1,17 +1,17 @@
 #include "Engine.h"
 
-void Engine::Consume(double liters) {
-    _fuel_tank->Consume(liters);
+void Engine::consume(double liters) {
+    _fuel_tank->consume(liters);
 }
 
-void Engine::Start() {
-    isRunning = true;
+void Engine::start() {
+    _is_running = true;
 }
 
-void Engine::Stop() {
-    isRunning = false;
+void Engine::stop() {
+    _is_running = false;
 }
 
-bool Engine::getIsRunning(){
-    return isRunning;
+bool Engine::get_is_running(){
+    return _is_running;
 }

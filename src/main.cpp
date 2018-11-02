@@ -21,8 +21,8 @@ int main(void)
     //DEBUG_MSG_CC("Debug was called from here - " << 23 << '\n');
 
     Car car;
-    car.EngineStart();
-    car.RunningIdle();
+    car.engine_start();
+    car.running_idle();
 
     return 0;
 }

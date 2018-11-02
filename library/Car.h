@@ -21,18 +21,18 @@ public:
     Car() : Car(20){};
 
     Car(int fuel) : _fuel_tank(), _engine(&_fuel_tank), fuel_tank_display(&_fuel_tank) {
-        Refuel(fuel);
+        refuel(fuel);
     }
 
-    void EngineStart();
+    void engine_start();
 
-    void EngineStop();
+    void engine_stop();
 
-    void Refuel(double liters);
+    void refuel(double liters);
 
-    void RunningIdle();
+    void running_idle();
 
-    bool getEngineIsRunning();
+    bool get_engine_is_running();
 };
 
 #endif // CAR_H

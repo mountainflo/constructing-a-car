@@ -11,11 +11,11 @@ private:
 public:
     FuelTankDisplay(FuelTank* fuel_tank) : _fuel_tank (fuel_tank){}
 
-    double getFillLevel();
+    double get_fill_level();
 
-    bool getIsOnReserve();
+    bool get_is_on_reserve();
 
-    bool getIsComplete();
+    bool get_is_complete();
 
 };
 

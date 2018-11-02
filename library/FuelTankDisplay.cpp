@@ -2,14 +2,14 @@
 #include <math.h>
 
 
-double FuelTankDisplay::getFillLevel(){
-    return ((int) round(_fuel_tank->getFillLevel() * 100.0)) / 100.0;
+double FuelTankDisplay::get_fill_level(){
+    return ((int) round(_fuel_tank->get_fill_level() * 100.0)) / 100.0;
 } 
 
-bool FuelTankDisplay::getIsOnReserve(){
-    return _fuel_tank->getIsOnReserve();
+bool FuelTankDisplay::get_is_on_reserve(){
+    return _fuel_tank->get_is_on_reserve();
 }
 
-bool FuelTankDisplay::getIsComplete(){
-    return _fuel_tank->getIsComplete();
+bool FuelTankDisplay::get_is_complete(){
+    return _fuel_tank->get_is_complete();
 }
