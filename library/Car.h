@@ -28,11 +28,15 @@ public:
 
     void engine_stop();
 
+    /** \brief Refuel the fuel tank.
+     *
+     * \param liters count of liters to refuel the car
+     */
     void refuel(double liters);
 
     void running_idle();
 
     bool get_engine_is_running();
-};
+ };
 
 #endif // CAR_H
