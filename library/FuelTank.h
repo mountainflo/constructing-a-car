@@ -13,12 +13,48 @@ private:
 
 public:
 
-    void consume(double liters);
-    void refuel(double liters);
+    void consume(double liters) {
+    if(liters > 0){
+        _fill_level -= liters;
+    }
+    if(_fill_level < RESERVE_FILL_LEVEL) {
+        _is_complete = true;
+    }
+    if(_fill_level < MAXIMUM_FILL_LEVEL) {
+        _is_complete = false;
+    }
+    if(_fill_level < 0.0) {
+        _fill_level = 0.0;
+    }
+}
 
-    bool get_is_on_reserve();
-    bool get_is_complete();
-    double get_fill_level();
+void refuel(double liters) {
+    if(liters > 0){
+        _fill_level += liters;
+    }
+    if(_fill_level >= MAXIMUM_FILL_LEVEL) {
+        _fill_level = MAXIMUM_FILL_LEVEL;
+        _is_complete = true;
+    }
+    if(_fill_level > RESERVE_FILL_LEVEL) {
+        _is_on_reserve = false;
+    }
+    if(_fill_level < RESERVE_FILL_LEVEL) {
+        _is_on_reserve = true;
+    }
+}
+
+bool get_is_on_reserve(){
+    return _is_on_reserve;
+}
+
+bool get_is_complete(){
+    return _is_complete;
+}
+
+double get_fill_level(){
+    return _fill_level;
+}  
     
 };
 

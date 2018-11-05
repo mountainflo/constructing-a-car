@@ -24,19 +24,36 @@ public:
         refuel(fuel);
     }
 
-    void engine_start();
+    bool get_engine_is_running(){
+	    return _engine.get_is_running();
+	}
 
-    void engine_stop();
+	void engine_start() {
+	    if(_fuel_tank.get_fill_level() > 0.0){
+	        _engine.start();
+	    } 
+	}
 
-    /** \brief Refuel the fuel tank.
-     *
-     * \param liters count of liters to refuel the car
-     */
-    void refuel(double liters);
+	void engine_stop() {
+	    _engine.stop();
+	}
 
-    void running_idle();
+	void refuel(double liters) {
+	    _fuel_tank.refuel(liters);
+	}
 
-    bool get_engine_is_running();
+	void running_idle() {
+	    if(_fuel_tank.get_fill_level() < FUEL_CONSUMPTION 
+	        || (_fuel_tank.get_fill_level() - FUEL_CONSUMPTION) < FUEL_CONSUMPTION){
+
+	        engine_stop();
+	        return;
+	    }
+
+	    if(get_engine_is_running()) {
+	        _fuel_tank.consume(FUEL_CONSUMPTION);
+	    }
+	}
  };
 
 #endif // CAR_H

@@ -13,13 +13,21 @@ public:
 
     Engine(FuelTank* fuel_tank) : _fuel_tank{fuel_tank} {};
 
-    void consume(double liters);
+    void consume(double liters) {
+	    _fuel_tank->consume(liters);
+	}
 
-    void start();
+	void start() {
+	    _is_running = true;
+	}
 
-    void stop();
+	void stop() {
+	    _is_running = false;
+	}
 
-    bool get_is_running();
+	bool get_is_running(){
+	    return _is_running;
+	}
     
 };
 

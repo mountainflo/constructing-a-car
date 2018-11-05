@@ -1,5 +1,5 @@
 # all library sources
-set(CONSRTUCT_CAR_SOURCES Car.h Car.cpp Engine.h Engine.cpp FuelTank.h FuelTank.cpp FuelTankDisplay.h FuelTankDisplay.cpp)
+set(CONSRTUCT_CAR_SOURCES Car.h Engine.h FuelTank.h FuelTankDisplay.h)
 set(SOURCES ${CONSRTUCT_CAR_SOURCES} autogen-${UNIQUE_DEBUG_ID}-macros.h)
 
 # create library
