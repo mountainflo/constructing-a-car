@@ -1,7 +1,9 @@
 #include "catch.h"
 #include "../library/Car.h"
 
-TEST_CASE("TestMotorOfNewCar", "[TestMotorOfNewCar]")
+// How to use the TESTCASE-Macro
+// TESTCASE( <NAME>, [<TAGS>] )
+TEST_CASE("TestMotorOfNewCar", "[simple]")
 {
     
     Car car;
@@ -18,7 +20,7 @@ TEST_CASE("TestMotorOfNewCar", "[TestMotorOfNewCar]")
 
 }
 
-TEST_CASE("TestFuelTankDisplayOfNewCar", "[TestFuelTankDisplayOfNewCar]")
+TEST_CASE("TestFuelTankDisplayOfNewCar", "[simple]")
 {
     
     Car car;
@@ -29,7 +31,7 @@ TEST_CASE("TestFuelTankDisplayOfNewCar", "[TestFuelTankDisplayOfNewCar]")
 
 }
 
-TEST_CASE("TestFuelConsumptionOnIdle", "[TestFuelConsumptionOnIdle]")
+TEST_CASE("TestFuelConsumptionOnIdle", "[simple]")
 {
     
     Car car(1);
@@ -43,7 +45,7 @@ TEST_CASE("TestFuelConsumptionOnIdle", "[TestFuelConsumptionOnIdle]")
     REQUIRE(car.fuel_tank_display.get_fill_level() == 0.10);
 }
 
-TEST_CASE("TestFuelTankDisplayIsComplete", "[TestFuelTankDisplayIsComplete]")
+TEST_CASE("TestFuelTankDisplayIsComplete", "[simple]")
 {
     
     Car car(60);
@@ -51,7 +53,7 @@ TEST_CASE("TestFuelTankDisplayIsComplete", "[TestFuelTankDisplayIsComplete]")
     REQUIRE(car.fuel_tank_display.get_is_complete() == true);
 }
 
-TEST_CASE("TestFuelTankDisplayIsOnReserve", "[TestFuelTankDisplayIsOnReserve]")
+TEST_CASE("TestFuelTankDisplayIsOnReserve", "[simple]")
 {
     
     Car car(4);
@@ -69,7 +71,7 @@ TEST_CASE("TestRefuel", "[TestRefuel]")
     REQUIRE(car.fuel_tank_display.get_fill_level() == 45);
 }
 
-TEST_CASE("TestMotorDoesntStartWithEmptyFuelTank", "[TestMotorDoesntStartWithEmptyFuelTank]")
+TEST_CASE("TestMotorDoesntStartWithEmptyFuelTank", "[simple]")
 {
     
     Car car(0);
@@ -79,7 +81,7 @@ TEST_CASE("TestMotorDoesntStartWithEmptyFuelTank", "[TestMotorDoesntStartWithEmp
     REQUIRE(car.get_engine_is_running() == false);
 }
 
-TEST_CASE("TestNoConsumptionWhenEngineNotRunning", "[TestNoConsumptionWhenEngineNotRunning]")
+TEST_CASE("TestNoConsumptionWhenEngineNotRunning", "[simple]")
 {
     
     Car car;
@@ -93,7 +95,7 @@ TEST_CASE("TestNoConsumptionWhenEngineNotRunning", "[TestNoConsumptionWhenEngine
     REQUIRE(car.fuel_tank_display.get_fill_level() == startFillLevel);
 }
 
-TEST_CASE("TestNoNegativeFuelLevelAllowed", "[TestNoNegativeFuelLevelAllowed]")
+TEST_CASE("TestNoNegativeFuelLevelAllowed", "[simple]")
 {
     
     Car car(-5);
@@ -103,7 +105,7 @@ TEST_CASE("TestNoNegativeFuelLevelAllowed", "[TestNoNegativeFuelLevelAllowed]")
     REQUIRE(car.fuel_tank_display.get_fill_level() == 0);
 }
 
-TEST_CASE("TestEngineStopsCauseOfNoFuelExactly", "[TestEngineStopsCauseOfNoFuelExactly]")
+TEST_CASE("TestEngineStopsCauseOfNoFuelExactly", "[simple]")
 {
     Car car(1);
     
@@ -116,7 +118,7 @@ TEST_CASE("TestEngineStopsCauseOfNoFuelExactly", "[TestEngineStopsCauseOfNoFuelE
     REQUIRE(car.get_engine_is_running() == false);
 }
 
-TEST_CASE("TestEngineStopsCauseOfNoFuelOver", "[TestEngineStopsCauseOfNoFuelOver]")
+TEST_CASE("TestEngineStopsCauseOfNoFuelOver", "[simple]")
 {
     Car car(1);
     
@@ -129,7 +131,7 @@ TEST_CASE("TestEngineStopsCauseOfNoFuelOver", "[TestEngineStopsCauseOfNoFuelOver
     REQUIRE(car.get_engine_is_running() == false);
 }
 
-TEST_CASE("TestFuelTankDisplayRoundFillLevel", "[TestFuelTankDisplayRoundFillLevel]")
+TEST_CASE("TestFuelTankDisplayRoundFillLevel", "[simple]")
 {
     Car car(0);
     
